@@ -7,8 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div id="heart-popup">
+        <svg viewBox="0 0 100 90" width="100" height="90">
+            <path d="M10,30 A20,20 0 0,1 50,30 A20,20 0 0,1 90,30 Q90,60 50,85 Q10,60 10,30 Z" fill="#ff4d6d"/>
+        </svg>
+    </div>
+    <div class="container" style="display:none;">
+        <img src="source.gif" alt="Cute bears" class="top-gif">
         <h1>I knew you love me, my lovie dabie. 🥰💖</h1>
     </div>
+    <script>
+    // Show heart animation, then reveal container with popup
+    window.onload = function() {
+        const heart = document.getElementById('heart-popup');
+        const container = document.querySelector('.container');
+        setTimeout(() => {
+            heart.classList.add('hide');
+            setTimeout(() => {
+                heart.style.display = 'none';
+                container.style.display = 'block';
+                container.classList.add('popup');
+            }, 600); // match heart fade duration
+        }, 1200); // heart display duration
+    };
+    </script>
 </body>
 </html>

@@ -46,10 +46,45 @@ button {
 }
 
 #noBtn {
-    background-color: #ffb3c6;
+    background-color: #ff66b2;
     color: white;
 }
 
 #noBtn:hover {
-    cursor: not-allowed;
+    background-color: #e055a0;
+    transform: scale(1.1);
+}
+
+#heart-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1000;
+    animation: heart-pop 0.6s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+#heart-popup.hide {
+    animation: heart-fade 0.6s forwards;
+}
+
+@keyframes heart-pop {
+    0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0; }
+    60% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@keyframes heart-fade {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.container.popup {
+    animation: container-pop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+@keyframes container-pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    80% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
 }
